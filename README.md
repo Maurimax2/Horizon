@@ -75,3 +75,40 @@ Voir `source/README.md`, `source/site-content.md` et `source/reviews.md` :
   pleine résolution pour les héros plein écran
 - Droits à confirmer sur les photos du train du fer (crédit `@zoefortuna`)
 - Confirmer ce que recouvrent les prix 149 / 200 / 300 $
+
+## Mise en ligne
+
+### Aperçu sur GitHub Pages
+
+**À faire une fois, à la main** (le jeton d'Actions n'en a pas le droit) :
+`Settings` → `Pages` → *Build and deployment* → **Source : GitHub Actions**.
+
+Ensuite chaque push redéploie automatiquement via
+`.github/workflows/deploy.yml`. L'adresse sera :
+
+```
+https://maurimax2.github.io/Horizon/
+```
+
+Tous les chemins du site sont relatifs, il fonctionne donc aussi bien
+depuis un sous-dossier que depuis la racine d'un domaine.
+
+### Sur l'hébergement de mauritaniahorizons.com
+
+Le site est constitué de fichiers statiques : il suffit de déposer le
+contenu à la racine du domaine, par FTP ou par le gestionnaire de fichiers
+de l'hébergeur. Ce qu'il faut envoyer :
+
+```
+index.html  404.html  robots.txt  sitemap.xml
+assets/  journeys/  book/  reviews/  guide/  services/  about/  contact/
+source/brand/logo.png
+```
+
+Inutile d'envoyer `node_modules/`, `tools/` ni `source/photos/` — ce sont
+les sources de travail, pas le site servi. Le workflow assemble exactement
+ce paquet dans son étape « Assemble the bundle ».
+
+Aucune base de données, aucun langage serveur, aucune variable
+d'environnement : le formulaire de réservation passe par WhatsApp et
+`mailto:`.

@@ -1,8 +1,13 @@
 name: Deploy site
 
 # Publie le site statique sur GitHub Pages.
-# `enablement: true` active Pages tout seul au premier passage, si les
-# permissions du dépôt le permettent.
+#
+# ⚠ PREMIÈRE MISE EN LIGNE : Pages doit être activé une fois à la main.
+#   Settings → Pages → Build and deployment → Source : « GitHub Actions »
+#   Sans ça, ce workflow échoue avec :
+#     Create Pages site failed. Resource not accessible by integration
+#   Le jeton d'Actions n'a pas le droit de créer le site lui-même.
+#   Une fois activé, chaque push redéploie tout seul — rien d'autre à faire.
 
 on:
   push:
