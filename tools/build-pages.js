@@ -185,7 +185,7 @@ function reviewsPage(B) {
       <div class="rev__t">${r.title}</div>
       <p class="rev__x">${r.text}</p>
       ${r.pics ? `<div class="rev__p">${r.pics.map(p => `<img src="${B}assets/img/${p}-480.webp" alt="" loading="lazy" decoding="async">`).join('')}</div>` : ''}
-      <div class="rev__f"><span>${r.date}</span><svg class="owl"><use href="#owl"/></svg></div>
+      <div class="rev__f"><span>${r.date}</span><span>Tripadvisor</span></div>
     </article>`;
 
   return `
@@ -216,7 +216,7 @@ function reviewsPage(B) {
         <h2 class="d2">In their words.</h2></div>
       <div style="text-align:right">
         <a class="btn btn--o btn--sm" href="https://www.tripadvisor.com/" target="_blank" rel="noopener">
-          <svg class="owl" style="color:var(--green)"><use href="#owl"/></svg> Read on Tripadvisor</a>
+          Read on Tripadvisor</a>
         <div class="tiny" style="margin-top:.7rem">Latest review: 15 March 2026</div>
       </div>
     </div>
@@ -233,15 +233,15 @@ function reviewsPage(B) {
     <h2 class="d2 rv" style="max-width:20ch">What travellers wrote to us directly.</h2>
     <div class="cards cards--3" style="margin-top:2.4rem">
       ${SITE_QUOTES.map(([n, c, t], i) => `
-      <figure class="rv" data-d="${i % 3}" style="margin:0;padding-top:1.2rem;border-top:1px solid var(--line)">
-        <blockquote style="margin:0;font-family:var(--serif);font-size:clamp(1.1rem,1.6vw,1.35rem);
-          line-height:1.3">${t}</blockquote>
-        <figcaption class="tiny" style="margin-top:1.1rem">${n} — ${c}</figcaption>
-      </figure>`).join('')}
+      <div class="rv" data-d="${i % 3}" style="padding-top:1.2rem;border-top:1px solid var(--line)">
+        <p class="d4" style="font-family:var(--serif)">${n}</p>
+        <p class="tiny" style="margin-top:.35rem">${c}</p>
+        <p class="say" style="margin-top:.9rem;font-size:.95rem">${t}</p>
+      </div>`).join('')}
     </div>
-    <p class="tiny" style="margin-top:2.4rem;max-width:74ch">These four are the testimonials
-      published on our current site. Their full original wording is being recovered and will
-      replace these summaries.</p>
+    <p class="tiny" style="margin-top:2.4rem;max-width:74ch">Four travellers who left testimonials
+      on our previous site. We are recovering their original wording — until then we summarise what
+      they praised rather than put words in their mouths.</p>
   </div>
 </section>
 
@@ -496,14 +496,14 @@ function contactPage(B) {
 console.log('Génération du site :');
 
 write('index.html', shell({
-  base: './', clock: true,
+  base: './', clock: true, canon: '',
   title: 'Mauritania Horizons | The Sahara, unlike anywhere else',
   desc: 'Licensed Mauritanian expedition specialists since 2023. Six journeys through the Adrar, Chinguetti, Ouadane, the Richat Structure, Banc d\'Arguin and the Iron Ore Train.',
   jsonld: LD(ORG), body: home('./'),
 }));
 
 write('journeys/index.html', shell({
-  base: '../',
+  base: '../', canon: 'journeys/index.html',
   title: 'Our journeys | Mauritania Horizons',
   desc: 'Six real itineraries across Mauritania, from one day in Nouakchott to a twelve-day expedition through the Adrar and the Atlantic coast.',
   body: journeysIndex('../'),
@@ -511,7 +511,7 @@ write('journeys/index.html', shell({
 
 JOURNEYS.forEach((j) => {
   write(`journeys/${j.slug}.html`, shell({
-    base: '../',
+    base: '../', canon: `journeys/${j.slug}.html`,
     title: `${j.title} — ${j.days} day${j.days > 1 ? 's' : ''} | Mauritania Horizons`,
     desc: j.blurb.slice(0, 175),
     jsonld: LD({
@@ -525,7 +525,7 @@ JOURNEYS.forEach((j) => {
 });
 
 write('book/index.html', shell({
-  base: '../',
+  base: '../', canon: 'book/index.html',
   title: 'Plan your journey | Mauritania Horizons',
   desc: 'Five short steps to send us your dates, your group and your journey. No payment, no commitment — we reply within 24 hours.',
   body: bookPage('../'),
@@ -533,14 +533,14 @@ write('book/index.html', shell({
 }));
 
 write('reviews/index.html', shell({
-  base: '../',
+  base: '../', canon: 'reviews/index.html',
   title: 'Reviews | Mauritania Horizons',
   desc: 'Verified Tripadvisor reviews and traveller testimonials for Mauritania Horizons — quoted in full, unedited.',
   body: reviewsPage('../'),
 }));
 
 write('guide/index.html', shell({
-  base: '../',
+  base: '../', canon: 'guide/index.html',
   title: 'Mauritania travel guide — visa, season, safety, packing | Mauritania Horizons',
   desc: 'Practical guidance for travelling in Mauritania: the $55 visa on arrival, the October to March season, safety, what to pack, culture and money.',
   jsonld: LD({ '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -550,24 +550,57 @@ write('guide/index.html', shell({
 }));
 
 write('services/index.html', shell({
-  base: '../',
+  base: '../', canon: 'services/index.html',
   title: 'Car rental, visa assistance & film logistics | Mauritania Horizons',
   desc: 'Toyota Hilux, Prado and Corolla rental with or without a driver, visa assistance, media production support and full desert logistics in Mauritania.',
   body: servicesPage('../'),
 }));
 
 write('about/index.html', shell({
-  base: '../',
+  base: '../', canon: 'about/index.html',
   title: 'About Mauritania Horizons | Local expedition specialists since 2023',
   desc: 'A Mauritanian tourism company approved by the state, founded in Nouakchott in 2023, running its own vehicles, guides and camps.',
   body: aboutPage('../'),
 }));
 
 write('contact/index.html', shell({
-  base: '../',
+  base: '../', canon: 'contact/index.html',
   title: 'Contact | Mauritania Horizons',
   desc: 'Reach Mauritania Horizons in Nouakchott — phone, WhatsApp, email. We answer within 24 hours in English, French and Arabic.',
   body: contactPage('../'),
+}));
+
+
+/* ── sitemap, robots, 404 ─────────────────────────────────────────────── */
+const ROOT = 'https://mauritaniahorizons.com/';
+const URLS = ['', 'journeys/index.html', ...JOURNEYS.map(j => `journeys/${j.slug}.html`),
+  'book/index.html', 'reviews/index.html', 'guide/index.html', 'services/index.html',
+  'about/index.html', 'contact/index.html'];
+const today = new Date().toISOString().slice(0, 10);
+S.write('sitemap.xml',
+  '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  URLS.map(u => `  <url><loc>${ROOT}${u}</loc><lastmod>${today}</lastmod>` +
+    `<priority>${u === '' ? '1.0' : u.startsWith('journeys/') || u === 'book/index.html' ? '0.8' : '0.6'}</priority></url>`).join('\n') +
+  '\n</urlset>\n');
+
+S.write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${ROOT}sitemap.xml\n`);
+
+S.write('404.html', shell({
+  base: './', canon: '404.html',
+  title: 'Page not found | Mauritania Horizons',
+  desc: 'That page does not exist. Find our journeys, reviews and travel guide here.',
+  body: `
+<section style="padding-top:clamp(7rem,14vw,11rem);min-height:70svh">
+  <div class="shell">
+    <p class="tiny tiny--b">Error 404</p>
+    <h1 class="d2" style="margin-top:1rem;max-width:18ch">You have gone off the piste.</h1>
+    <p class="say" style="margin-top:1.3rem">That page does not exist. It happens out here.</p>
+    <p style="margin-top:2.2rem;display:flex;gap:.7rem;flex-wrap:wrap">
+      <a class="btn btn--l" href="./index.html">Back to the start</a>
+      <a class="btn btn--o" href="./journeys/index.html">See the journeys</a>
+      <a class="btn btn--o" href="./book/index.html">Plan a trip</a></p>
+  </div>
+</section>`,
 }));
 
 console.log('Terminé.');

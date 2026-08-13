@@ -1,0 +1,52 @@
+name: Deploy site
+
+# Publie le site statique sur GitHub Pages.
+# `enablement: true` active Pages tout seul au premier passage, si les
+# permissions du dépôt le permettent.
+
+on:
+  push:
+    branches: [claude/mauritania-horizons-website-x8fy24, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # On n'envoie que ce qui doit être servi : pas de node_modules,
+      # pas de scripts de génération, pas de photos sources non converties.
+      - name: Assemble the bundle
+        run: |
+          mkdir -p _site
+          cp -r index.html 404.html robots.txt sitemap.xml README.md _site/
+          cp -r assets journeys book reviews guide services about contact _site/
+          mkdir -p _site/source/brand
+          cp source/brand/logo.png _site/source/brand/
+          touch _site/.nojekyll
+          du -sh _site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

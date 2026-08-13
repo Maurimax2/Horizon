@@ -185,11 +185,15 @@ const REVIEWS = [
     pics: ['dunes-4x4-piste', 'train-fer-pause-desert', 'terjit-palmeraie', 'ouadane-ruines-panneau'] },
 ];
 
+/* Témoignages publiés sur le site actuel. Seuls les THÈMES ont pu être
+   extraits, pas les textes intégraux — on les présente donc comme des
+   sujets d'éloge, sans guillemets. Mettre des mots inventés entre
+   guillemets sous le nom d'une personne réelle n'est pas envisageable. */
 const SITE_QUOTES = [
-  ['Fabrice', 'France', 'Professionalism, passion, and an Adrar expedition through landscapes I had no reference for.'],
-  ['Hilario J. Rodríguez', 'Spain', 'The team\'s expertise, guides who clearly love this desert, and a genuinely warm welcome.'],
-  ['Foulque', 'France', 'Chinguetti and the ancient cities, well organised, with real cultural explanation along the way.'],
-  ['Vironika Banache', 'Poland', 'Attention to detail, comfort where it mattered, and nights under the stars I still think about.'],
+  ['Fabrice', 'France', 'Praised our professionalism, the passion of the team, and the Adrar expedition — its landscapes and its cultural immersion.'],
+  ['Hilario J. Rodríguez', 'Spain', 'Praised the Mauritanian desert, the expertise of the team, the passion of the guides and the warmth of the welcome.'],
+  ['Foulque', 'France', 'Praised Chinguetti and the ancient cities, the organisation, the cultural explanations and the desert landscapes.'],
+  ['Vironika Banache', 'Poland', 'Praised the desert adventure, the attention to detail, the comfort and the nights under the stars.'],
 ];
 
 /* ═══════════════════════════════════════════════════════ HELPERS ═════ */
@@ -210,7 +214,7 @@ const NAV = [
   ['about/index.html', 'About'],
 ];
 
-function shell({ title, desc, body, base, clock, jsonld = '', extraJs = '' }) {
+function shell({ title, desc, body, base, clock, jsonld = '', extraJs = '', canon = '' }) {
   const B = base;
   const nav = NAV.map(([h, t]) => `<a href="${B}${h}">${t}</a>`).join('\n        ');
   const ovl = [...NAV, ['book/index.html', 'Book a journey'], ['contact/index.html', 'Contact']]
@@ -230,6 +234,7 @@ function shell({ title, desc, body, base, clock, jsonld = '', extraJs = '' }) {
 <meta property="og:description" content="${desc}">
 <meta property="og:image" content="https://mauritaniahorizons.com/assets/img/dunes-4x4-piste-2-full.webp">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mauritaniahorizons.com/${canon}">
 <link rel="icon" href="${B}source/brand/logo.png">
 <link rel="stylesheet" href="${B}assets/css/site.css">
 <script>if(location.protocol==='file:'){var l=document.createElement('link');l.rel='stylesheet';
@@ -240,11 +245,6 @@ ${jsonld}
 <a class="skip" href="#main">Skip to content</a>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="owl" viewBox="0 0 120 78"><path d="M60 0 44 13h32z" fill="currentColor"/>
-    <circle cx="31" cy="47" r="27" fill="none" stroke="currentColor" stroke-width="7"/>
-    <circle cx="31" cy="47" r="11" fill="currentColor"/>
-    <circle cx="89" cy="47" r="27" fill="none" stroke="currentColor" stroke-width="7"/>
-    <circle cx="89" cy="47" r="11" fill="currentColor"/></symbol>
   <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm0 2a8 8 0 11-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0112 4zm-3.2 4.3c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.7 2.8 4.3 3.8 2.1.8 2.5.7 3 .6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3l-1.5-.7c-.2-.1-.4-.1-.6.1l-.7.9c-.1.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.3-1.6-1.5-1.8-.1-.3 0-.4.1-.5l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4-.1-.5l-.7-1.6c-.2-.4-.3-.4-.5-.4h-.5z"/></symbol>
 </svg>
 
