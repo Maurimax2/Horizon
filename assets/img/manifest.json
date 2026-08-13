@@ -1,0 +1,271 @@
+{
+ "bibliothecaire-manuscrits": {
+  "w": 1170,
+  "h": 1557,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "campement-feu-nuit": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "chinguetti-ruelle": {
+  "w": 720,
+  "h": 900,
+  "widths": [
+   480,
+   720
+  ]
+ },
+ "danse-feu-nuit": {
+  "w": 1170,
+  "h": 1560,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "dunes-4x4-piste-2": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "dunes-4x4-piste": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "enfant-danse-sable": {
+  "w": 1170,
+  "h": 1559,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "equipe-tshirt-pirogue": {
+  "w": 1170,
+  "h": 1463,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "fort-ancien-silhouette": {
+  "w": 1170,
+  "h": 1560,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "manuscrits-anciens": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "marche-artisanat": {
+  "w": 1206,
+  "h": 1608,
+  "widths": [
+   480,
+   900,
+   1206
+  ]
+ },
+ "ouadane-arches-pierre": {
+  "w": 1170,
+  "h": 1560,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "ouadane-ruines-panneau": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "ouadane-tour-pierre": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "ouadane-vieille-ville": {
+  "w": 1170,
+  "h": 1462,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "portrait-boubou-bleu": {
+  "w": 1170,
+  "h": 1463,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "portrait-cheche-noir": {
+  "w": 1170,
+  "h": 1463,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "portrait-cheche-regard": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "richat-vue-aerienne": {
+  "w": 1080,
+  "h": 1350,
+  "widths": [
+   480,
+   900,
+   1080
+  ]
+ },
+ "terjit-oasis": {
+  "w": 1170,
+  "h": 1462,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "terjit-palmeraie": {
+  "w": 1170,
+  "h": 1462,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "train-fer-coucher-soleil": {
+  "w": 1170,
+  "h": 1463,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "train-fer-nuit-campement": {
+  "w": 1170,
+  "h": 1463,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "train-fer-pause-desert": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "train-fer-portrait-masque": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "train-fer-vent-poussiere": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "train-fer-voyageur-wagon": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "train-fer-wagon-minerai": {
+  "w": 1170,
+  "h": 1170,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "tshirt-horizons-dos": {
+  "w": 1170,
+  "h": 1463,
+  "widths": [
+   480,
+   900,
+   1170
+  ]
+ },
+ "vehicule-interieur-village": {
+  "w": 1206,
+  "h": 1608,
+  "widths": [
+   480,
+   900,
+   1206
+  ]
+ }
+}
