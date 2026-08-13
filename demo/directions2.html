@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three more directions</title>
+<style>
+@font-face{font-family:'Mono';src:url('./fonts/mono.woff2') format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Mono';src:url('./fonts/mono-bold.woff2') format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Archivo';src:url('./fonts/archivo.woff2') format('woff2');font-weight:400 900;font-display:swap}
+@font-face{font-family:'Grotesk';src:url('./fonts/grotesk.woff2') format('woff2');font-weight:300 700;font-display:swap}
+@font-face{font-family:'Instrument';src:url('./fonts/instrument.woff2') format('woff2');font-display:swap}
+*{box-sizing:border-box}
+body{margin:0}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+.tag{position:absolute;top:0;left:0;z-index:60;background:#000;color:#fff;
+  font:700 12px/1 ui-monospace,monospace;letter-spacing:.2em;padding:9px 14px}
+
+/* ═════════════════════════════ D — GRILLE SUISSE / CATALOGUE ══════════ */
+.D{position:relative;background:#fff;color:#0D0D0D;font-family:'Archivo',sans-serif}
+.D .bar{display:flex;justify-content:space-between;align-items:center;
+  padding:.9rem clamp(1rem,3vw,2.2rem);border-bottom:1px solid #0D0D0D;
+  font:400 11px/1 'Mono';letter-spacing:.1em;text-transform:uppercase}
+.D .bar b{font-weight:700}
+.D .hero{display:grid;grid-template-columns:1fr;border-bottom:1px solid #0D0D0D}
+@media(min-width:900px){.D .hero{grid-template-columns:5fr 7fr}}
+.D .hero__l{padding:clamp(1.6rem,3.5vw,3rem);display:flex;flex-direction:column;
+  justify-content:space-between;gap:2rem;border-right:1px solid #0D0D0D}
+.D .idx{font:400 11px/1.9 'Mono';letter-spacing:.06em;display:grid;gap:.1rem}
+.D .idx span{display:flex;justify-content:space-between;border-bottom:1px dotted #bbb;padding-bottom:.15rem}
+.D h1{margin:0;font-size:clamp(2.2rem,4.6vw,3.9rem);font-weight:600;line-height:.98;
+  letter-spacing:-.045em}
+.D .sub{font:400 12px/1.7 'Mono';margin-top:1.1rem;max-width:40ch;color:#333}
+.D .hero__r{position:relative;min-height:330px}
+.D .hero__r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.D .caption{position:absolute;left:0;bottom:0;background:#fff;border-top:1px solid #0D0D0D;
+  border-right:1px solid #0D0D0D;padding:.5rem .8rem;font:400 10px/1 'Mono';letter-spacing:.08em;
+  text-transform:uppercase}
+.D .grid{display:grid;grid-template-columns:1fr}
+@media(min-width:760px){.D .grid{grid-template-columns:repeat(3,1fr)}}
+.D .cell{border-right:1px solid #0D0D0D;border-bottom:1px solid #0D0D0D;padding:0}
+.D .cell:nth-child(3n){border-right:0}
+.D .cell__h{display:flex;justify-content:space-between;padding:.6rem .9rem;
+  border-bottom:1px solid #0D0D0D;font:700 10px/1 'Mono';letter-spacing:.12em;text-transform:uppercase}
+.D .cell img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:grayscale(.15)}
+.D .cell__b{padding:1rem .9rem 1.2rem}
+.D .cell h3{margin:0 0 .5rem;font-size:1.12rem;font-weight:600;letter-spacing:-.025em;line-height:1.1}
+.D .cell p{margin:0;font:400 11px/1.65 'Mono';color:#444}
+.D .cell .foot{margin-top:.9rem;padding-top:.6rem;border-top:1px dotted #bbb;
+  display:flex;justify-content:space-between;font:700 10px/1 'Mono';letter-spacing:.1em;
+  text-transform:uppercase}
+
+/* ═════════════════════════════ E — SPLIT IMMERSIF ═════════════════════ */
+.E{position:relative;display:grid;grid-template-columns:1fr;min-height:100vh;
+  font-family:'Grotesk',sans-serif;background:#11100E;color:#fff}
+@media(min-width:900px){.E{grid-template-columns:42% 58%}}
+.E .pane{padding:clamp(1.8rem,4vw,3.6rem);display:flex;flex-direction:column;
+  justify-content:space-between;gap:2.5rem;min-height:100vh}
+.E .brand{font-size:12px;letter-spacing:.32em;text-transform:uppercase;opacity:.75}
+.E h1{margin:0;font-size:clamp(2.2rem,4.2vw,3.9rem);font-weight:300;line-height:1.02;
+  letter-spacing:-.04em}
+.E h1 i{font-style:normal;color:#F0C078}
+.E .sub{margin:1.3rem 0 0;font-size:1rem;line-height:1.6;color:rgba(255,255,255,.62);max-width:38ch}
+.E .list{display:grid;gap:0;margin-top:2.4rem}
+.E .list a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:.95rem 0;border-top:1px solid rgba(255,255,255,.15);font-size:.98rem;
+  transition:color .3s,padding .35s ease}
+.E .list a:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
+.E .list a:hover{color:#F0C078;padding-left:.5rem}
+.E .list em{font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  opacity:.5}
+.E .foot{display:flex;gap:1.5rem;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  opacity:.55;flex-wrap:wrap}
+.E .cta{display:inline-flex;align-items:center;gap:.7rem;background:#F0C078;color:#11100E;
+  padding:1rem 1.6rem;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  align-self:flex-start;margin-top:1.8rem}
+.E .vis{position:relative;overflow:hidden;min-height:60vh}
+.E .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.E .vis__c{position:absolute;left:0;right:0;bottom:0;padding:2.5rem 1.5rem 1.4rem;
+  background:linear-gradient(transparent,rgba(17,16,14,.85));display:flex;
+  justify-content:space-between;align-items:flex-end;gap:1rem;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase}
+.E .num{position:absolute;top:1.4rem;right:1.5rem;font-size:11px;letter-spacing:.25em;
+  background:rgba(17,16,14,.6);padding:.5rem .8rem;backdrop-filter:blur(6px)}
+
+/* ═════════════════════════════ F — CARNET D'EXPÉDITION ════════════════ */
+.F{position:relative;background:#EFE8DA;color:#241F19;font-family:'Mono',monospace;
+  background-image:radial-gradient(rgba(36,31,25,.055) 1px,transparent 1px);
+  background-size:4px 4px}
+.F .bar{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;
+  padding:.85rem clamp(1rem,3vw,2.2rem);border-bottom:2px solid #241F19;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.F .hero{padding:clamp(1.8rem,4vw,3.2rem) clamp(1rem,3vw,2.2rem);
+  border-bottom:2px dashed rgba(36,31,25,.35);position:relative}
+.F .co{font-size:10px;letter-spacing:.18em;margin-bottom:1.2rem;opacity:.62}
+.F h1{margin:0;font-family:'Instrument',serif;font-size:clamp(2.6rem,6.6vw,5.4rem);
+  line-height:.94;letter-spacing:-.02em;max-width:16ch;font-weight:400}
+.F h1 i{color:#9C4A2F}
+.F .sub{margin-top:1.3rem;font-size:12px;line-height:1.85;max-width:52ch}
+.F .stamp{position:absolute;right:clamp(1rem,3vw,2.2rem);top:clamp(1.6rem,4vw,3rem);
+  border:2px solid #9C4A2F;color:#9C4A2F;padding:.7rem .9rem;text-align:center;
+  font-size:10px;font-weight:700;letter-spacing:.14em;line-height:1.5;
+  transform:rotate(-7deg);text-transform:uppercase;opacity:.85}
+.F .rule{display:flex;gap:1.6rem;padding:.7rem clamp(1rem,3vw,2.2rem);font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;border-bottom:2px solid #241F19;
+  overflow:hidden;white-space:nowrap}
+.F .grid{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:820px){.F .grid{grid-template-columns:repeat(3,1fr)}}
+.F .tk{border-right:2px dashed rgba(36,31,25,.35);border-bottom:2px dashed rgba(36,31,25,.35);
+  padding:1rem;display:flex;flex-direction:column;gap:.75rem;transition:background .3s}
+.F .tk:hover{background:rgba(255,255,255,.5)}
+.F .tk:nth-child(3n){border-right:0}
+.F .tk__h{display:flex;justify-content:space-between;font-size:10px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase}
+.F .tk img{width:100%;aspect-ratio:5/4;object-fit:cover;border:2px solid #241F19;
+  filter:sepia(.18) contrast(1.03)}
+.F .tk h3{margin:0;font-family:'Instrument',serif;font-size:1.5rem;font-weight:400;line-height:1.05;
+  letter-spacing:-.01em}
+.F .tk p{margin:0;font-size:11px;line-height:1.7;opacity:.78}
+.F .tk .pr{margin-top:auto;padding-top:.7rem;border-top:2px dashed rgba(36,31,25,.35);
+  display:flex;justify-content:space-between;font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:#9C4A2F}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════ D ═══════════════════ -->
+<section class="D" id="D">
+  <span class="tag">DIRECTION D — CATALOGUE</span>
+  <div class="bar"><b>MAURITANIA HORIZONS</b><span>Nouakchott · 18°06′N 15°57′W</span>
+    <span>EN / FR</span><b>PLAN A TRIP →</b></div>
+  <div class="hero">
+    <div class="hero__l">
+      <div>
+        <h1>The Sahara,<br>unlike anywhere else.</h1>
+        <p class="sub">Ancient caravan cities, endless dunes, nomadic traditions, wild Atlantic
+          coastlines and one of the world's last great overland adventures.</p>
+      </div>
+      <div class="idx">
+        <span><b>01</b> Ultimate Expedition <b>12 D</b></span>
+        <span><b>02</b> Iron Ore Train <b>06 D</b></span>
+        <span><b>03</b> Desert &amp; Ocean <b>10 D</b></span>
+        <span><b>04</b> Sands &amp; Stars <b>10 D</b></span>
+        <span><b>05</b> Coast to Desert <b>09 D</b></span>
+        <span><b>06</b> Nouakchott <b>01 D</b></span>
+      </div>
+    </div>
+    <div class="hero__r"><img src="../assets/img/dunes-4x4-piste-2-full.webp" alt="">
+      <span class="caption">Fig. 01 — Adrar, piste towards Atar</span></div>
+  </div>
+  <div class="grid">
+    <div class="cell"><div class="cell__h"><span>01 / Expedition</span><span>12 Days</span></div>
+      <img src="../assets/img/ouadane-arches-pierre-900.webp" alt="">
+      <div class="cell__b"><h3>Ultimate Mauritania Expedition</h3>
+        <p>Chinguetti, Ouadane, the Richat Structure, Ben Amira, Banc d'Arguin.</p>
+        <div class="foot"><span>Adrar → Atlantic</span><span>On request</span></div></div></div>
+    <div class="cell"><div class="cell__h"><span>02 / Rail</span><span>06 Days</span></div>
+      <img src="../assets/img/train-fer-coucher-soleil-900.webp" alt="">
+      <div class="cell__b"><h3>Sahara &amp; Iron Ore Train</h3>
+        <p>Terjit, Chinguetti, Ouadane, Atar, then a night on the rails to Nouadhibou.</p>
+        <div class="foot"><span>Choum → Nouadhibou</span><span>On request</span></div></div></div>
+    <div class="cell"><div class="cell__h"><span>03 / Coast</span><span>10 Days</span></div>
+      <img src="../assets/img/terjit-oasis-900.webp" alt="">
+      <div class="cell__b"><h3>Desert &amp; Ocean Escape</h3>
+        <p>Nouakchott, Banc d'Arguin, vast dunes, historic towns and oases.</p>
+        <div class="foot"><span>Min. 3 guests</span><span>From $149</span></div></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ E ═══════════════════ -->
+<section class="E" id="E">
+  <span class="tag">DIRECTION E — SPLIT</span>
+  <div class="pane">
+    <div class="brand">Mauritania Horizons</div>
+    <div>
+      <h1>Cross the Sahara<br>on <i>the world's longest</i><br>freight train.</h1>
+      <p class="sub">Six days between dunes, ancient cities and legendary rails. Board at Choum,
+        sleep on the ore, wake up on the Atlantic.</p>
+      <a class="cta" href="#">Plan this journey →</a>
+      <div class="list">
+        <a href="#">Ultimate Mauritania Expedition <em>12 Days</em></a>
+        <a href="#">Sahara &amp; Iron Ore Train <em>06 Days</em></a>
+        <a href="#">Desert &amp; Ocean Escape <em>10 Days</em></a>
+        <a href="#">Sands &amp; Stars Adventure <em>10 Days</em></a>
+      </div>
+    </div>
+    <div class="foot"><span>Licensed since 2023</span><span>24/7 assistance</span>
+      <span>+222 46 65 65 94</span></div>
+  </div>
+  <div class="vis">
+    <img src="../assets/img/train-fer-portrait-masque-full.webp" alt="">
+    <span class="num">02 / 06</span>
+    <div class="vis__c"><span>Tmeimichatt — boarding at dusk</span><span>Scroll →</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ F ═══════════════════ -->
+<section class="F" id="F">
+  <span class="tag">DIRECTION F — CARNET</span>
+  <div class="bar"><span>Mauritania Horizons — Nouakchott</span>
+    <span>Est. 2023 · Licensed operator</span><span>EN / FR</span><span>[ Plan a trip ]</span></div>
+  <div class="hero">
+    <div class="co">18°06′N 15°57′W — Nouakchott → Adrar → Atlantic</div>
+    <h1>The Sahara, <i>unlike</i> anywhere else.</h1>
+    <p class="sub">Ancient caravan cities, endless dunes, nomadic traditions, wild Atlantic
+      coastlines and one of the world's last great overland adventures. Six journeys, run by the
+      people who know these routes.</p>
+    <div class="stamp">Approved<br>operator<br>2023</div>
+  </div>
+  <div class="rule"><span>◆ Iron ore train</span><span>◆ Richat structure</span>
+    <span>◆ Chinguetti libraries</span><span>◆ Banc d'Arguin</span><span>◆ Terjit oasis</span>
+    <span>◆ Own 4×4 fleet</span></div>
+  <div class="grid">
+    <a class="tk" href="#"><div class="tk__h"><span>No. 01</span><span>12 Days</span></div>
+      <img src="../assets/img/ouadane-arches-pierre-900.webp" alt="">
+      <h3>Ultimate Expedition</h3>
+      <p>Chinguetti, Ouadane, the Richat Structure, Ben Amira and Banc d'Arguin.</p>
+      <div class="pr"><span>Adrar → Atlantic</span><span>On request</span></div></a>
+    <a class="tk" href="#"><div class="tk__h"><span>No. 02</span><span>06 Days</span></div>
+      <img src="../assets/img/train-fer-coucher-soleil-900.webp" alt="">
+      <h3>Iron Ore Train</h3>
+      <p>Dunes, ancient cities and one night on the rails from Choum to Nouadhibou.</p>
+      <div class="pr"><span>Min. 3 guests</span><span>On request</span></div></a>
+    <a class="tk" href="#"><div class="tk__h"><span>No. 03</span><span>10 Days</span></div>
+      <img src="../assets/img/campement-feu-nuit-900.webp" alt="">
+      <h3>Sands &amp; Stars</h3>
+      <p>Bedouin culture, birdwatching, ancient cities, bivouacs under the stars.</p>
+      <div class="pr"><span>Min. 3 guests</span><span>From $200</span></div></a>
+  </div>
+</section>
+
+</body>
+</html>
