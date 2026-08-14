@@ -192,7 +192,7 @@ function reviewsPage(B) {
 <section class="hour veil-soft" style="min-height:62svh">
   ${heroImg('portrait-cheche-regard', 'A traveller in the Adrar')}
   <div class="in" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:62svh">
-    <p class="tiny"><span class="pulse" style="display:inline-block;margin-right:.5rem"></span> Verified reviews</p>
+    <p class="tiny">Tripadvisor</p>
     <h1 class="d1" style="margin-top:1rem">They went.</h1>
     <p class="say" style="margin-top:1.2rem">Every word on this page was written by someone who
       travelled with us. Nothing is edited, including the typos.</p>
