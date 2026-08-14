@@ -102,7 +102,7 @@ de l'hébergeur. Ce qu'il faut envoyer :
 ```
 index.html  404.html  robots.txt  sitemap.xml
 assets/  journeys/  book/  reviews/  guide/  services/  about/  contact/
-source/brand/logo.png
+source/brand/logo-transparent.png
 ```
 
 Inutile d'envoyer `node_modules/`, `tools/` ni `source/photos/` — ce sont

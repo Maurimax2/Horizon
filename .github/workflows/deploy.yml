@@ -45,7 +45,7 @@ jobs:
           cp -r index.html 404.html robots.txt sitemap.xml README.md _site/
           cp -r assets journeys book reviews guide services about contact _site/
           mkdir -p _site/source/brand
-          cp source/brand/logo.png _site/source/brand/
+          cp source/brand/logo-transparent.png _site/source/brand/
           touch _site/.nojekyll
           du -sh _site
 

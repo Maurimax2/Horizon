@@ -235,7 +235,7 @@ function shell({ title, desc, body, base, clock, jsonld = '', extraJs = '', cano
 <meta property="og:image" content="https://mauritaniahorizons.com/assets/img/dunes-4x4-piste-2-full.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://mauritaniahorizons.com/${canon}">
-<link rel="icon" href="${B}source/brand/logo.png">
+<link rel="icon" href="${B}source/brand/logo-transparent.png">
 <link rel="stylesheet" href="${B}assets/css/site.css">
 <script>if(location.protocol==='file:'){var l=document.createElement('link');l.rel='stylesheet';
 l.href='${B}assets/css/fonts-inline.css';document.head.appendChild(l);}</script>
@@ -251,7 +251,7 @@ ${jsonld}
 <header class="top">
   <div class="top__in">
     <a class="top__logo" href="${B}index.html" aria-label="Mauritania Horizons — home">
-      <img src="${B}source/brand/logo.png" alt="Mauritania Horizons" width="478" height="462">
+      <img src="${B}source/brand/logo-transparent.png" alt="Mauritania Horizons" width="478" height="462">
     </a>
     <nav class="top__n" aria-label="Primary">
         ${nav}
@@ -286,7 +286,7 @@ ${body}
   <div class="shell">
     <div class="ft__g">
       <div>
-        <span class="ft__logo"><img src="${B}source/brand/logo.png" alt="Mauritania Horizons" width="478" height="462"></span>
+        <span class="ft__logo"><img src="${B}source/brand/logo-transparent.png" alt="Mauritania Horizons" width="478" height="462"></span>
         <p class="say" style="margin-top:1.3rem;max-width:30ch">Authentic journeys through the world's last great Sahara. Licensed operator, Nouakchott, since 2023.</p>
       </div>
       <div><h4>Journeys</h4><ul>
