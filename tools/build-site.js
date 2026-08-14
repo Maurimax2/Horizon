@@ -249,17 +249,19 @@ ${jsonld}
 </svg>
 
 <header class="top">
-  <div class="top__l">
-    <a href="${B}index.html">Mauritania Horizons</a>
+  <div class="top__in">
+    <a class="top__logo" href="${B}index.html" aria-label="Mauritania Horizons — home">
+      <img src="${B}source/brand/logo.png" alt="Mauritania Horizons" width="478" height="462">
+    </a>
     <nav class="top__n" aria-label="Primary">
         ${nav}
     </nav>
-  </div>
-  <div class="top__r">
-    <span class="lang"><b class="on">EN</b><b>FR</b></span>
-    <a href="${B}book/index.html">Plan a trip</a>
-    <button class="burger" type="button" aria-expanded="false" aria-controls="ovl" aria-label="Menu">
-      <i></i><i></i><i></i></button>
+    <div class="top__r">
+      <span class="lang"><b class="on">EN</b><b>FR</b></span>
+      <a class="btn btn--s btn--sm" href="${B}book/index.html">Plan a trip</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="ovl" aria-label="Menu">
+        <i></i><i></i><i></i></button>
+    </div>
   </div>
 </header>
 
@@ -353,16 +355,43 @@ function journeyCards(B) {
 /* ------------------------------------------------------------ ACCUEIL */
 function home(B) {
   return `
-<section class="hour veil-dawn" data-hour id="dawn">
-  ${heroImg('train-fer-portrait-masque', 'A traveller on the iron ore train before sunrise')}
-  <span class="mark">05:40 — Before the heat</span>
-  <div class="in" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:100svh">
-    <h1 class="d1">It starts before the light does.</h1>
-    <p class="say" style="margin-top:1.5rem">You wake because the cold got into the sleeping bag.
-      The sand is grey. Nobody speaks for the first hour.</p>
-    <div class="scrollhint"><i></i> Follow the day</div>
+<div class="hour" data-hour id="dawn">
+  ${heroImg('dunes-4x4-piste-2', 'A 4×4 crossing the dunes of the Mauritanian Sahara')}
+  <div class="in">
+    <p class="eyebrow">Mauritania · West Africa</p>
+    <h1 class="d1">The Sahara,<br>unlike anywhere else.</h1>
+    <p class="say" style="margin-top:1.4rem">Ancient caravan cities, endless dunes, nomadic
+      traditions, wild Atlantic coastlines and one of the world's last great overland adventures.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2rem">
+      <a class="btn btn--l" href="${B}journeys/index.html">Explore our journeys</a>
+      <a class="btn btn--o" style="color:#fff" href="${B}book/index.html">Plan my trip</a>
+    </div>
   </div>
-</section>
+</div>
+
+<div class="shell">
+  <form class="planner" data-planner autocomplete="off" action="${B}book/index.html">
+    <div class="fld"><label for="pj">Where do you want to go?</label>
+      <select id="pj" name="journey"><option value="">All journeys</option>
+      ${JOURNEYS.map(j => `<option value="${j.slug}">${j.title} — ${j.days} day${j.days > 1 ? 's' : ''}</option>`).join('')}
+      </select></div>
+    <div class="fld"><label for="pa">When?</label><input type="date" id="pa" name="arrival"></div>
+    <div class="fld"><label for="pt">Travellers</label>
+      <select id="pt" name="adults"><option>3</option><option>2</option><option>4</option><option>5</option></select></div>
+    <button class="btn btn--l" type="submit">Plan my journey</button>
+  </form>
+</div>
+
+<div class="trust" style="margin-top:var(--sp)">
+  <div class="shell" style="padding-inline:0">
+    <div class="trust__g">
+      <div class="trust__i"><b>Licensed by the State</b><span>Approved Mauritanian tour operator</span></div>
+      <div class="trust__i"><b>Local since 2023</b><span>Mauritanian team, Mauritanian guides</span></div>
+      <div class="trust__i"><b>24/7 assistance</b><span>Throughout your stay, on and off the piste</span></div>
+      <div class="trust__i"><b>We run our own trips</b><span>Own 4×4s, own drivers, no subcontracting</span></div>
+    </div>
+  </div>
+</div>
 
 <section class="hour sun on-sun" data-hour id="noon">
   <span class="mark">13:00 — Nothing in any direction</span>
@@ -475,7 +504,7 @@ function home(B) {
 /* ------------------------------------------------- LISTE DES CIRCUITS */
 function journeysIndex(B) {
   return `
-<section class="hour veil-soft" style="min-height:70svh">
+<section class="hour" style="min-height:70svh">
   ${heroImg('ouadane-arches-pierre', 'Stone arches in the ruins of Ouadane')}
   <div class="in" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:70svh">
     <p class="tiny">Six journeys</p>
@@ -524,7 +553,7 @@ function journeyPage(B, j) {
 </section>`;
 
   return `
-<section class="hour veil-dawn" style="min-height:88svh">
+<section class="hour" style="min-height:88svh">
   ${heroImg(j.hero, j.title)}
   <div class="in" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:88svh">
     <p class="tiny">${j.strap}</p>

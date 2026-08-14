@@ -6,6 +6,13 @@
   var $ = function (s, c) { return (c || d).querySelector(s); };
   var $$ = function (s, c) { return [].slice.call((c || d).querySelectorAll(s)); };
 
+  /* en-tête : fond opaque dès qu'on quitte le haut */
+  var topbar = $('.top');
+  if (topbar) {
+    var solid = function () { topbar.classList.toggle('solid', scrollY > 40); };
+    solid(); addEventListener('scroll', solid, { passive: true });
+  }
+
   /* menu */
   var burger = $('.burger'), ovl = $('.ovl');
   if (burger && ovl) {
