@@ -232,7 +232,7 @@ function shell({ title, desc, body, base, clock, jsonld = '', extraJs = '', cano
 <meta property="og:site_name" content="Mauritania Horizons">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
-<meta property="og:image" content="https://mauritaniahorizons.com/assets/img/train-fer-coucher-soleil-full.webp">
+<meta property="og:image" content="https://mauritaniahorizons.com/assets/img/richat-vue-aerienne-full.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://mauritaniahorizons.com/${canon}">
 <link rel="icon" href="${B}source/brand/logo-brand.png">
@@ -356,7 +356,7 @@ function journeyCards(B) {
 function home(B) {
   return `
 <div class="hour" data-hour id="dawn">
-  ${heroImg('train-fer-coucher-soleil', 'The iron ore railway crossing the Sahara at sunset')}
+  ${heroImg('richat-vue-aerienne', 'The Richat Structure — the Eye of the Sahara, seen from the air')}
   <div class="in">
     <p class="eyebrow">Mauritania · West Africa</p>
     <h1 class="d1">The Sahara,<br>unlike anywhere else.</h1>
