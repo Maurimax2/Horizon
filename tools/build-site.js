@@ -51,7 +51,7 @@ const JOURNEYS = [
     itinerary: [
       { d: '01', t: 'Nouakchott → Azouega', h: 'Départ vers les terres de l\'Adrar',
         p: 'North out of Nouakchott, through the old mining town of Akjoujt, and into the Adrar.',
-        s: 'Night: camp or auberge in Azouega', img: 'dunes-4x4-piste' },
+        s: 'Night: camp or auberge in Azouega', img: 'vehicule-interieur-village' },
       { d: '02', t: 'Azouega → Chinguetti', h: 'Sources sacrées et manuscrits anciens',
         p: 'Breakfast in the oasis, then Terjit — a fault in the rock holding a palm grove, cliffs and freshwater springs. Chinguetti in the afternoon: the libraries, the medieval manuscripts, the old town.',
         s: 'Night: traditional auberge in Chinguetti', img: 'terjit-oasis' },
@@ -82,7 +82,7 @@ const JOURNEYS = [
       ['Oases', 'Freshwater springs under palms, in the middle of the driest country in the region.'],
       ['Both worlds', 'Ocean and erg in a single journey.'],
     ],
-    gallery: ['terjit-oasis', 'dunes-4x4-piste', 'marche-artisanat', 'chinguetti-ruelle'],
+    gallery: ['terjit-oasis', 'vehicule-interieur-village', 'marche-artisanat', 'chinguetti-ruelle'],
   },
   {
     slug: 'sands-stars-adventure',
@@ -139,7 +139,7 @@ const JOURNEYS = [
         p: 'Lunch in a traditional restaurant.', s: 'Midday', img: 'vehicule-interieur-village' },
       { d: '04', t: 'Spirituality & dunes', h: 'Ibn Abbas mosque, artisans, camels',
         p: 'The Ibn Abbas mosque and the artisans\' market, then out to the dunes for a camel ride.',
-        s: 'Afternoon', img: 'dunes-4x4-piste' },
+        s: 'Afternoon', img: 'vehicule-interieur-village' },
       { d: '05', t: 'Sunset & dinner', h: 'The day closes on the sand',
         p: 'Sunset over the dunes, then a traditional dinner.', s: 'Evening', img: 'campement-feu-nuit' },
     ],
@@ -182,7 +182,7 @@ const REVIEWS = [
     title: 'I did the 8 days package, was a great trip recommend it',
     text: 'I had a great time spending with the group an the team of horizons agency did a great services',
     date: 'Travelled with friends · September 2025', av: 'equipe-tshirt-pirogue', src: 'Tripadvisor',
-    pics: ['dunes-4x4-piste', 'train-fer-pause-desert', 'terjit-palmeraie', 'ouadane-ruines-panneau'] },
+    pics: ['vehicule-interieur-village', 'train-fer-pause-desert', 'terjit-palmeraie', 'ouadane-ruines-panneau'] },
 ];
 
 /* Témoignages publiés sur le site actuel. Seuls les THÈMES ont pu être
@@ -232,7 +232,7 @@ function shell({ title, desc, body, base, clock, jsonld = '', extraJs = '', cano
 <meta property="og:site_name" content="Mauritania Horizons">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
-<meta property="og:image" content="https://mauritaniahorizons.com/assets/img/dunes-4x4-piste-2-full.webp">
+<meta property="og:image" content="https://mauritaniahorizons.com/assets/img/train-fer-coucher-soleil-full.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://mauritaniahorizons.com/${canon}">
 <link rel="icon" href="${B}source/brand/logo-brand.png">
@@ -356,7 +356,7 @@ function journeyCards(B) {
 function home(B) {
   return `
 <div class="hour" data-hour id="dawn">
-  ${heroImg('dunes-4x4-piste-2', 'A 4×4 crossing the dunes of the Mauritanian Sahara')}
+  ${heroImg('train-fer-coucher-soleil', 'The iron ore railway crossing the Sahara at sunset')}
   <div class="in">
     <p class="eyebrow">Mauritania · West Africa</p>
     <h1 class="d1">The Sahara,<br>unlike anywhere else.</h1>
@@ -407,7 +407,7 @@ function home(B) {
           <div><b>0</b><span>Bars of signal</span></div>
         </div>
       </div>
-      <img class="r43 rv" data-d="1" src="${B}assets/img/dunes-4x4-piste-2-full.webp" alt="A 4×4 alone in the dunes" loading="lazy" decoding="async">
+      <img class="r43 rv" data-d="1" src="${B}assets/img/train-fer-pause-desert-900.webp" alt="A traveller alone on the ore wagons" loading="lazy" decoding="async">
     </div>
   </div>
 </section>

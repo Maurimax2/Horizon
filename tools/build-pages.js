@@ -311,7 +311,7 @@ function servicesPage(B) {
   ];
   return `
 <section class="hour veil-soft" style="min-height:58svh">
-  ${heroImg('dunes-4x4-piste', 'A 4×4 on the piste in the Adrar')}
+  ${heroImg('portrait-cheche-noir', 'A 4×4 on the piste in the Adrar')}
   <div class="in" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:58svh">
     <p class="tiny">Beyond the journeys</p>
     <h1 class="d1" style="margin-top:1rem">Vehicles, visas, film crews.</h1>
