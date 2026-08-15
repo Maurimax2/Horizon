@@ -568,3 +568,46 @@ section>.shell>.lead+*{margin-top:clamp(2rem,4vw,3.2rem)}
     max-width:calc(var(--max) - var(--pad) * 2);margin-inline:auto;border:1px solid var(--line);
     box-shadow:0 40px 80px -60px rgba(25,23,20,.6)}
 }
+
+/* ==========================================================================
+   ACCUEIL EN DÉSERT DE NUIT
+   Ciblé par :has(.planner) — seule la page d'accueil en possède un.
+   ========================================================================== */
+body:has(.planner){
+  --ivory:#100D0A; --ivory-2:#181310; --char:#F4EFE7; --char-2:#E4DDD2;
+  --bg:#100D0A; --fg:#F4EFE7; --dim:rgba(244,239,231,.62); --line:rgba(244,239,231,.15);
+  --earth:#D2854F; background:var(--bg); color:var(--fg)}
+
+/* les boutons s'inversent : clair sur fond sombre */
+body:has(.planner) .btn--l,body:has(.planner) .btn--p{background:#F4EFE7;color:#100D0A;border-color:#F4EFE7}
+body:has(.planner) .btn--l:hover,body:has(.planner) .btn--p:hover{background:var(--earth);border-color:var(--earth);color:#100D0A}
+
+/* surfaces auparavant blanches */
+body:has(.planner) .planner{background:#1C1613;border-color:var(--line);
+  box-shadow:0 40px 90px -50px rgba(0,0,0,.9)}
+body:has(.planner) .fld input,body:has(.planner) .fld select{color:var(--fg)}
+body:has(.planner) .fld select option{background:#1C1613;color:var(--fg)}
+body:has(.planner) .trust,body:has(.planner) .trust__i{background:#181310}
+body:has(.planner) .trust__g{background:var(--line)}
+body:has(.planner) .tick{background:#181310;border-color:var(--line)}
+body:has(.planner) .caravan{background:#181310;border-color:var(--line)}
+body:has(.planner) .caravan__track svg{color:#E8C79A;opacity:.5}
+body:has(.planner) .row:hover{background:rgba(244,239,231,.04)}
+body:has(.planner) .card__m{box-shadow:0 30px 60px -40px rgba(0,0,0,.9)}
+
+/* la section « plein soleil » devient une nuit chaude */
+body:has(.planner) .hour.sun{background:#181310;color:var(--fg)}
+body:has(.planner) .hour.sun .say,body:has(.planner) .hour.sun .tiny{color:var(--dim)}
+body:has(.planner) .hour.sun h1,body:has(.planner) .hour.sun h2,body:has(.planner) .hour.sun h3{color:var(--fg)}
+body:has(.planner) .hour.sun .eyebrow,body:has(.planner) .hour.sun .tiny--b{color:var(--earth)}
+body:has(.planner) .temps b{color:#E8C79A}
+
+/* alternance : deux nuances de nuit au lieu de deux ivoires */
+body:has(.planner) main>section:not(.hour):not(.trust):nth-of-type(even){background:#161110}
+
+/* crêtes de dune et découpe du pied de page, recolorées */
+body:has(.planner) .dune svg path{fill:#181310!important}
+body:has(.planner) .ft{background:#0A0806}
+body:has(.planner) .ft::before{background:#0A0806}
+body:has(.planner) .band::after{
+  background:linear-gradient(100deg,rgba(8,8,10,.88) 0%,rgba(8,8,10,.5) 46%,transparent 78%)}
