@@ -404,3 +404,48 @@ p{margin:0 0 1.05em}p:last-child{margin-bottom:0}
   .rv{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }
+
+/* ==========================================================================
+   MATIÈRE DU DÉSERT — casse l'empilement de bandes horizontales
+   ========================================================================== */
+
+/* Grain de sable très léger sur toute la page */
+body::after{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:.05;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E")}
+
+/* Crête de dune : la limite entre deux sections n'est plus une droite */
+.dune{position:relative;line-height:0;margin:0;overflow:hidden}
+.dune svg{width:100%;height:clamp(38px,5.5vw,90px);display:block}
+.dune--up{margin-bottom:-1px}
+.dune--down{margin-top:-1px}
+
+/* Caravane : silhouettes qui traversent une bande de sable */
+.caravan{position:relative;overflow:hidden;background:var(--ivory-2);
+  border-block:1px solid var(--line);padding-block:clamp(1.4rem,3vw,2.4rem)}
+.caravan__track{position:relative;height:clamp(52px,7vw,86px)}
+.caravan__track svg{position:absolute;bottom:0;left:0;height:100%;width:auto;
+  color:var(--char);opacity:.72;animation:walk 46s linear infinite}
+@keyframes walk{from{transform:translateX(-22vw)}to{transform:translateX(104vw)}}
+.caravan__line{height:1px;background:var(--line);margin-top:-1px}
+
+/* Blocs décalés : les colonnes ne démarrent plus à la même hauteur */
+@media(min-width:900px){
+  .two--offset>*:first-child{transform:translateY(clamp(1rem,3.5vw,3.4rem))}
+  .two--offset>*:last-child{transform:translateY(clamp(-3.4rem,-3.5vw,-1rem))}
+}
+/* Image qui déborde sur la section suivante */
+.bleed{margin-bottom:clamp(-6rem,-7vw,-3rem);position:relative;z-index:3}
+
+/* Grand chiffre fantôme en filigrane derrière un bloc */
+.ghost{position:relative}
+.ghost::before{content:attr(data-ghost);position:absolute;right:-.06em;top:-.42em;z-index:0;
+  font-family:var(--serif);font-size:clamp(9rem,22vw,20rem);line-height:1;color:var(--earth);
+  opacity:.055;pointer-events:none;user-select:none}
+.ghost>*{position:relative;z-index:1}
+
+/* Cartes de circuits : léger décalage vertical alterné, comme des dunes */
+@media(min-width:1080px){
+  .cards--3>*:nth-child(3n+2){transform:translateY(clamp(1rem,2.4vw,2.6rem))}
+  .cards--3>*:nth-child(3n){transform:translateY(clamp(2rem,4.6vw,5rem))}
+}
