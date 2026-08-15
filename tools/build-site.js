@@ -491,7 +491,7 @@ ${dune("var(--ivory-2)","down").replace("dune--down","dune--down").replace("<div
         <h2 class="d2">Six ways to be out there.</h2></div>
       <p class="tiny" style="max-width:26ch">Licensed operator · Nouakchott · since 2023</p>
     </div>
-    <div class="rows ghost" data-ghost="06">${journeyRows(B)}</div>
+    <div class="cards cards--3 ghost" data-ghost="06">${journeyCards(B)}</div>
     <p style="margin-top:2.6rem"><a class="btn btn--o" href="${B}journeys/index.html">All journeys in detail</a></p>
   </div>
 </section>
