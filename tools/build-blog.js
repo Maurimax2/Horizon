@@ -12,7 +12,7 @@
    ═══════════════════════════════════════════════════════════════════════ */
 
 const S = require('./build-site.js');
-const { shell, write } = S;
+const { shell, write, heroImg } = S;
 
 /* ── contenu fourni par le client — ne rien modifier ─────────────────── */
 const PAGE_TITLE = 'Mauritania Travel Blog';
@@ -27,125 +27,107 @@ const POSTS = [
     date: 'August 13, 2026', iso: '2026-08-13',
     excerpt: 'Wondering how many days in Mauritania you need? Plan the right pace for desert cities, the Eye of Africa, the coast, and the Iron Ore Train in comfort.',
     slug: 'how-many-days-in-mauritania-for-a-desert-trip',
-    photo: 'Mauritanian Sahara desert · 4x4 expedition',
+    img: 'ouadane-tour-pierre',
+    alt: 'The stone tower of Ouadane standing alone in the sand',
   },
   {
     title: '7 Best Mauritania Desert Routes for 2026',
     date: 'August 11, 2026', iso: '2026-08-11',
     excerpt: 'Find the best Mauritania desert routes, from Chinguetti to the Eye of the Sahara, with expert advice on timing, comfort, and route planning for travelers.',
     slug: '7-best-mauritania-desert-routes-for-2026',
-    photo: 'Sahara dunes · desert route',
+    img: 'richat-vue-aerienne',
+    alt: 'The Richat Structure — the Eye of the Sahara, seen from the air',
   },
   {
     title: 'Mauritania Visa Assistance Made Simple',
     date: 'June 19, 2026', iso: '2026-06-19',
     excerpt: 'Mauritania visa assistance helps travelers avoid delays, understand entry rules, and prepare the right documents for a smooth arrival in Mauritania.',
     slug: 'mauritania-visa-assistance-made-simple',
-    photo: 'Mauritania passport · visa documents',
+    img: 'bibliothecaire-manuscrits',
+    alt: 'A librarian in Chinguetti handling the pages of an ancient manuscript',
   },
   {
     title: 'Mauritania or Morocco Travel: Which Fits You?',
     date: 'June 17, 2026', iso: '2026-06-17',
     excerpt: 'Mauritania or Morocco travel – compare culture, landscapes, pace, comfort, and adventure to choose the North African journey that fits you best.',
     slug: 'mauritania-or-morocco-travel-which-fits-you',
-    photo: 'Mauritania vs Morocco · North African landscapes',
+    img: 'ouadane-vieille-ville',
+    alt: 'The old stone town of Ouadane above its palm groves at sunset',
   },
   {
     title: 'A Guide to Mauritania Visa Process',
     date: 'June 15, 2026', iso: '2026-06-15',
     excerpt: 'A clear guide to Mauritania visa process, including entry options, documents, timing, fees, and practical tips for a smooth arrival.',
     slug: 'a-guide-to-mauritania-visa-process',
-    photo: 'Traveler arriving in Mauritania',
+    img: 'vehicule-interieur-village',
+    alt: 'Arriving in a village, seen from inside the vehicle',
   },
   {
     title: 'How to Ride Iron Ore Train in Mauritania',
     date: 'June 13, 2026', iso: '2026-06-13',
     excerpt: 'Learn how to ride Iron Ore Train in Mauritania with practical advice on routes, safety, comfort, timing, and whether to go independently or guided.',
     slug: 'how-to-ride-iron-ore-train-in-mauritania',
-    photo: 'Iron Ore Train crossing the Sahara',
+    img: 'train-fer-voyageur-wagon',
+    alt: 'A traveller standing on an ore wagon of the iron ore train',
   },
   {
     title: 'Mauritania Desert Tours Worth Taking',
     date: 'June 11, 2026', iso: '2026-06-11',
     excerpt: 'Mauritania desert tours reveal vast dunes, ancient caravan towns, luxury camps, and remote Sahara routes with expert planning and authentic access.',
     slug: 'mauritania-desert-tours-worth-taking',
-    photo: 'Mauritania desert camp · dunes',
+    img: 'campement-feu-nuit',
+    alt: 'A desert camp at night, gathered around the fire',
   },
   {
     title: 'How to Explore Banc dArguin the Right Way',
     date: 'June 9, 2026', iso: '2026-06-09',
     excerpt: 'Learn how to explore Banc dArguin with expert timing, routes, wildlife insights, and comfort tips for a rare, refined Mauritania journey.',
     slug: 'how-to-explore-banc-darguin-the-right-way',
-    photo: "Banc d'Arguin coastline · birds",
+    img: 'equipe-tshirt-pirogue',
+    alt: 'A Mauritania Horizons guide aboard a pirogue on the Atlantic coast',
   },
   {
     title: 'Guided or Self Drive Mauritania?',
     date: 'June 7, 2026', iso: '2026-06-07',
     excerpt: 'Guided or self drive Mauritania? Compare safety, logistics, comfort, and freedom to choose the right way to experience deserts, culture, and coast.',
     slug: 'guided-or-self-drive-mauritania',
-    photo: '4x4 driving through the desert',
+    img: 'ouadane-ruines-panneau',
+    alt: 'A sandy track and a signpost through the ruins of Ouadane',
   },
   {
     title: 'What to Wear in Mauritania',
     date: 'June 5, 2026', iso: '2026-06-05',
     excerpt: 'Wondering what to wear Mauritania? Our guide covers desert layers, city dress, coastal conditions, and cultural etiquette for smart packing.',
     slug: 'what-to-wear-in-mauritania',
-    photo: 'Mauritanian traditional clothing · desert traveler',
+    img: 'portrait-boubou-bleu',
+    alt: 'A man in a traditional blue boubou and chèche',
   },
 ];
 
 const PAGES = 5;   // le blog compte 5 pages au total
 
-/* ── placeholder photo ────────────────────────────────────────────────
-   Pas de photo inventée, pas de banque d'images : un SVG inline qui
-   nomme la photo attendue et son emplacement final. Il passe par
-   <img> et hérite donc exactement du style .card__m img existant.
+/* ── photos ──────────────────────────────────────────────────────────
+   Uniquement des photos de la galerie de Mauritania Horizons, déjà
+   présentes dans assets/img/ (WebP 480 / 900 / natif produits par
+   tools/build-images.js). Aucune banque d'images.
 
-   Pour poser la vraie photo, remplacer simplement l'attribut src par
-   la valeur de data-photo — rien d'autre à toucher.                   */
+   Chaque photo est choisie pour ce qu'elle montre réellement, et le
+   texte alternatif décrit la photo, pas l'article.                    */
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
   .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-function wrapText(text, max) {
-  const out = []; let line = '';
-  for (const w of text.split(' ')) {
-    if ((line + ' ' + w).trim().length > max) { out.push(line.trim()); line = w; }
-    else line += ' ' + w;
-  }
-  if (line.trim()) out.push(line.trim());
-  return out;
-}
-
-function placeholder(subject, file) {
-  const lines = wrapText(subject, 26);
-  const startY = 342 - (lines.length - 1) * 19;
-  const svg =
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">` +
-    `<rect width="800" height="600" fill="#E5D8C1"/>` +
-    `<path d="M0,470 C160,470 250,404 400,398 C548,392 640,440 800,414 L800,600 L0,600 Z" fill="#D5C4A6"/>` +
-    `<rect x="24" y="24" width="752" height="552" fill="none" stroke="#C4B190" stroke-width="2" stroke-dasharray="10 8"/>` +
-    `<circle cx="400" cy="196" r="44" fill="none" stroke="#AD9970" stroke-width="2"/>` +
-    `<path d="M376,216 l18,-22 13,15 11,-13 17,20 z" fill="#AD9970"/>` +
-    `<circle cx="382" cy="180" r="7" fill="#AD9970"/>` +
-    `<text x="400" y="284" text-anchor="middle" font-family="Inter,Helvetica,Arial,sans-serif" ` +
-    `font-size="17" letter-spacing="4" fill="#8C4A2C">PHOTO PLACEHOLDER</text>` +
-    lines.map((l, i) => `<text x="400" y="${startY + i * 38}" text-anchor="middle" ` +
-      `font-family="Georgia,serif" font-size="30" fill="#191714">${esc(l)}</text>`).join('') +
-    `<text x="400" y="548" text-anchor="middle" font-family="Inter,Helvetica,Arial,sans-serif" ` +
-    `font-size="15" fill="#6E6353">${esc(file)}</text>` +
-    `</svg>`;
-  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-}
-
-const photoFile = (p) => `assets/img/blog/${p.slug}.jpg`;
+// Vignette de carte — même balisage que les cartes de circuits.
+const cardImg = (B, p) =>
+  `<img src="${B}assets/img/${p.img}-900.webp" srcset="${B}assets/img/${p.img}-480.webp 480w, ` +
+  `${B}assets/img/${p.img}-900.webp 900w" sizes="(min-width:1080px) 32vw, (min-width:700px) 48vw, 100vw" ` +
+  `alt="${esc(p.alt)}" loading="lazy" decoding="async">`;
 
 /* ── carte d'article — structure .card identique à celle des voyages ── */
 function postCard(B, p) {
   return `
     <a class="card rv" href="${B}blog/${p.slug}/index.html">
       <div class="card__m"><span class="card__d">${CAT}</span>
-        <img src="${placeholder(p.photo, '/' + photoFile(p))}" data-photo="${B}${photoFile(p)}"
-             alt="Photo placeholder — ${esc(p.photo)}" loading="lazy" decoding="async"></div>
+        ${cardImg(B, p)}</div>
       <div class="card__b">
         <h3>${esc(p.title)}</h3>
         <p>${esc(p.excerpt)}</p>
@@ -225,19 +207,17 @@ function listPage(B, cur) {
 function postPage(B, p, i) {
   const prev = POSTS[i - 1], next = POSTS[i + 1];
   return `
-<section class="hour sun" style="padding-top:clamp(8rem,15vw,11rem);padding-bottom:clamp(1.4rem,3vw,2.6rem)">
-  <div class="in">
-    <p class="tiny tiny--b">${CAT} — ${p.date}</p>
+<section class="hour veil-soft" style="min-height:58svh">
+  ${heroImg(p.img, p.alt)}
+  <div class="in" style="display:flex;flex-direction:column;justify-content:flex-end;min-height:58svh">
+    <p class="tiny">${CAT} — ${p.date}</p>
     <h1 class="d1" style="margin-top:1rem;max-width:20ch">${esc(p.title)}</h1>
-    <p class="say" style="margin-top:1.4rem;max-width:62ch">${esc(p.excerpt)}</p>
   </div>
 </section>
 
 <section>
   <div class="shell" style="max-width:1100px">
-    <img style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover" src="${placeholder(p.photo, '/' + photoFile(p))}"
-         data-photo="${B}${photoFile(p)}" alt="Photo placeholder — ${esc(p.photo)}"
-         loading="lazy" decoding="async">
+    <p class="lede" style="max-width:62ch">${esc(p.excerpt)}</p>
     <p class="say" style="margin-top:2.2rem;max-width:60ch">The full text of this article has not
       been supplied yet. Ask us anything it would have covered — we answer within 24 hours.</p>
     <p style="margin-top:2.2rem;display:flex;gap:.8rem;flex-wrap:wrap">

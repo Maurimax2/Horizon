@@ -83,13 +83,21 @@ Voir `source/README.md`, `source/site-content.md` et `source/reviews.md` :
 
 Le contenu du blog est celui fourni par le client, repris mot pour mot dans
 `tools/build-blog.js` (`POSTS`) : titres, dates, catégorie, extraits, slugs.
-Rien n'a été inventé. Restent à fournir :
+Rien n'a été inventé.
 
-- **Les photos.** Chaque article affiche un placeholder SVG qui nomme la photo
-  attendue et son chemin final. Pour poser la vraie image, déposer le fichier
-  dans `assets/img/blog/<slug>.jpg` et remplacer, dans `build-blog.js`, l'appel
-  `placeholder(...)` par ce chemin — l'attribut `data-photo` de chaque `<img>`
-  le rappelle déjà dans le HTML généré.
+Les photos viennent toutes de la galerie de Mauritania Horizons
+(`assets/img/`) — aucune banque d'images. Chacune est choisie pour ce
+qu'elle montre vraiment ; le champ `img` de `POSTS` la désigne, `alt`
+décrit la photo et non l'article. Pour en changer une, remplacer `img`
+par un autre nom de `assets/img/` (sans le suffixe `-480` / `-900`).
+
+Trois articles n'ont pas d'équivalent exact dans la galerie — passeport,
+visa, 4×4 sur piste (la seule photo de 4×4 a été retirée, le véhicule
+n'appartenait pas à l'agence). Ils portent la photo la plus proche par le
+sens ; à remplacer dès que les vraies images existent.
+
+Restent à fournir :
+
 - **Le corps des articles.** Seuls le titre, la date, la catégorie et l'extrait
   ont été fournis ; les pages d'article le disent explicitement plutôt que
   d'inventer un texte.
