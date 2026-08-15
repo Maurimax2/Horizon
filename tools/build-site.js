@@ -241,6 +241,7 @@ const NAV = [
   ['reviews/index.html', 'Reviews'],
   ['guide/index.html', 'Travel guide'],
   ['services/index.html', 'Services'],
+  ['blog/index.html', 'Blog'],
   ['about/index.html', 'About'],
 ];
 
@@ -338,6 +339,7 @@ ${body}
         <li><a href="${B}guide/index.html#visa">Visa</a></li>
         <li><a href="${B}services/index.html">Car rental</a></li>
         <li><a href="${B}reviews/index.html">Reviews</a></li>
+        <li><a href="${B}blog/index.html">Blog</a></li>
         <li><a href="${B}about/index.html">About us</a></li>
       </ul></div>
       <div><h4>Contact</h4><ul>

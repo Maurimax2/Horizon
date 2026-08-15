@@ -624,3 +624,10 @@ body:has(.planner) .ovl__n a:hover>span,
 body:has(.planner) .ft a:hover{color:var(--sand)}
 body:has(.planner) .ft h4{color:var(--sand)}
 body:has(.planner) .ft__b{color:rgba(244,239,231,.5)}
+
+/* ── correctif : pastille de carte masquée ────────────────────────────
+   .card__m img porte un filter:, ce qui crée un contexte d'empilement
+   et fait passer l'image AU-DESSUS de .card__d (z-index:auto). La
+   pastille « 12 jours » / « Uncategorized » était donc invisible sur
+   toutes les cartes du site. On rétablit simplement l'ordre voulu. */
+.card__d{z-index:1}

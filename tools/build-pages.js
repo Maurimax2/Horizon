@@ -571,10 +571,15 @@ write('contact/index.html', shell({
 }));
 
 
+/* ── blog ─────────────────────────────────────────────────────────────── */
+const BLOG = require('./build-blog.js');
+BLOG.build();
+
 /* ── sitemap, robots, 404 ─────────────────────────────────────────────── */
 const ROOT = 'https://mauritaniahorizons.com/';
 const URLS = ['', 'journeys/index.html', ...JOURNEYS.map(j => `journeys/${j.slug}.html`),
   'book/index.html', 'reviews/index.html', 'guide/index.html', 'services/index.html',
+  'blog/index.html', ...BLOG.POSTS.map(p => `blog/${p.slug}/index.html`),
   'about/index.html', 'contact/index.html'];
 const today = new Date().toISOString().slice(0, 10);
 S.write('sitemap.xml',
