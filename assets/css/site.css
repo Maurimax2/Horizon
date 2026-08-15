@@ -449,3 +449,36 @@ body::after{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;o
   .cards--3>*:nth-child(3n+2){transform:translateY(clamp(1rem,2.4vw,2.6rem))}
   .cards--3>*:nth-child(3n){transform:translateY(clamp(2rem,4.6vw,5rem))}
 }
+
+/* ==========================================================================
+   MENU PLEIN ÉCRAN — nuit du désert
+   ========================================================================== */
+.ovl{background:linear-gradient(180deg,#0A1420 0%,#1A1410 46%,#3A2415 74%,#6B4A22 100%);
+  padding:calc(var(--nav-h) + 3vh) var(--pad) 0;grid-template-rows:1fr auto auto}
+/* étoiles + dune + caravane, posées derrière les liens */
+.ovl__sky{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ovl__sky svg{position:absolute;bottom:0;left:0;width:100%;height:auto}
+.ovl__dune{color:#20160E}
+.ovl__cam{position:absolute;bottom:clamp(26px,5vw,54px);left:0;height:clamp(30px,4.6vw,52px);
+  width:auto;color:#0E0A06;opacity:.9;animation:walk2 54s linear infinite}
+@keyframes walk2{from{transform:translateX(-18vw)}to{transform:translateX(112vw)}}
+.ovl>*:not(.ovl__sky){position:relative;z-index:2}
+
+.ovl__n{gap:0}
+.ovl__n a{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:clamp(.9rem,2.5vw,2rem);
+  padding:clamp(.5rem,1.4vw,.9rem) 0;border-bottom:1px solid rgba(240,192,120,.16);
+  font-size:clamp(1.9rem,6.2vw,3.6rem);overflow:visible;transition:padding-left .5s var(--ease)}
+.ovl__n a:first-child{border-top:1px solid rgba(240,192,120,.16)}
+.ovl__n a:hover{padding-left:clamp(.4rem,1.4vw,1.2rem)}
+.ovl__n a::before{content:attr(data-n);font-family:var(--sans);font-size:.62rem;font-weight:600;
+  letter-spacing:.22em;color:var(--sand);opacity:.75;transform:translateY(-.5em)}
+.ovl__n a>span{transition:transform .8s var(--ease),color .35s}
+.ovl__n a:hover>span{color:var(--sand)}
+
+.ovl__f{border-top:0;padding-top:1.6rem;padding-bottom:clamp(4.5rem,9vw,7rem);
+  gap:.55rem 2rem;color:rgba(251,248,242,.72);flex-direction:column;align-items:flex-start}
+@media(min-width:760px){.ovl__f{flex-direction:row;align-items:center}}
+.ovl__f a:hover{color:var(--sand)}
+.ovl__q{font-family:var(--serif);font-size:clamp(1.05rem,2.2vw,1.5rem);color:rgba(251,248,242,.9);
+  padding:1.4rem 0 .4rem;max-width:26ch;line-height:1.25}
+.ovl__q em{font-style:italic;color:var(--sand)}

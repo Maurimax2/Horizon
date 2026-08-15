@@ -248,7 +248,7 @@ function shell({ title, desc, body, base, clock, jsonld = '', extraJs = '', cano
   const B = base;
   const nav = NAV.map(([h, t]) => `<a href="${B}${h}">${t}</a>`).join('\n        ');
   const ovl = [...NAV, ['book/index.html', 'Book a journey'], ['contact/index.html', 'Contact']]
-    .map(([h, t]) => `<a href="${B}${h}"><span>${t}</span></a>`).join('\n      ');
+    .map(([h, t], i) => `<a href="${B}${h}" data-n="0${i + 1}"><span>${t}</span></a>`).join('\n      ');
 
   return `<!DOCTYPE html>
 <html lang="en" data-base="${B}">
@@ -296,9 +296,20 @@ ${jsonld}
 </header>
 
 <div class="ovl" id="ovl" aria-hidden="true">
+  <div class="ovl__sky" aria-hidden="true">
+    <svg class="ovl__dune" viewBox="0 0 1440 220" preserveAspectRatio="none">
+      <path fill="currentColor" d="M0,168 C190,168 270,104 470,96 C660,88 740,140 940,146 C1100,150 1220,110 1440,92 L1440,220 L0,220 Z"/>
+    </svg>
+    <svg class="ovl__cam" viewBox="0 0 470 112" fill="currentColor">
+      <g transform="translate(0,4) scale(.92)">${CAMEL}<path d="M58,30 C58,22 66,20 68,26 C70,20 74,22 73,30 C70,34 62,34 58,30 Z"/></g>
+      <g transform="translate(132,12) scale(.82)">${CAMEL}</g>
+      <g transform="translate(248,18) scale(.74)">${CAMEL}</g>
+    </svg>
+  </div>
   <nav class="ovl__n" aria-label="Menu">
       ${ovl}
   </nav>
+  <p class="ovl__q">Follow the old caravan routes — <em>we know where they go</em>.</p>
   <div class="ovl__f tiny">
     <a href="tel:+22246656594">${PHONE}</a>
     <a href="mailto:${MAIL}">${MAIL}</a>
