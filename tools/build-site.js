@@ -435,7 +435,18 @@ ${dune("var(--ivory-2)")}
   </div>
 </div>
 
-${dune("var(--ivory-2)","down").replace("dune--down","dune--down").replace("<div class","<div style=\"transform:scaleY(-1)\" class")}
+
+<section class="band">
+  <img src="${B}assets/img/ouadane-vieille-ville-full.webp" alt="The ruins of the upper city of Ouadane" loading="lazy" decoding="async">
+  <div class="band__in">
+    <p class="eyebrow" style="color:var(--sand)">Why Mauritania</p>
+    <h2 class="d2 rv">There are places you visit.<br>And places you <em class="hl" style="color:var(--sand)">remember forever</em>.</h2>
+    <p class="say rv" data-d="1">Mauritania is the size of Egypt and receives fewer visitors in a
+      year than a single European city takes in a weekend. Almost nothing here has been arranged
+      for tourists — which is precisely the point.</p>
+  </div>
+</section>
+
 <section class="hour sun on-sun" data-hour id="noon">
   <span class="mark">13:00 — Nothing in any direction</span>
   <div class="in">
@@ -495,6 +506,29 @@ ${dune("var(--ivory-2)","down").replace("dune--down","dune--down").replace("<div
     <p style="margin-top:2.6rem"><a class="btn btn--o" href="${B}journeys/index.html">All journeys in detail</a></p>
   </div>
 </section>
+
+
+<div class="railwrap">
+  <div class="shell"><div class="lead" style="border:0;padding-bottom:1.2rem">
+    <div><p class="eyebrow">Destinations</p>
+      <h2 class="d2 rv">Where we take you.</h2></div>
+    <p class="tiny rail__hint" style="padding:0">Drag to explore →</p>
+  </div></div>
+  <div class="rail">
+    <a class="dest" href="${B}journeys/index.html"><img src="${B}assets/img/chinguetti-ruelle-480.webp" alt="Chinguetti" loading="lazy">
+      <div class="dest__c"><h3 class="d4">Chinguetti</h3><p>A city built by caravans — libraries of medieval manuscripts, still in family hands.</p></div></a>
+    <a class="dest" href="${B}journeys/index.html"><img src="${B}assets/img/ouadane-tour-pierre-480.webp" alt="Ouadane" loading="lazy">
+      <div class="dest__c"><h3 class="d4">Ouadane</h3><p>UNESCO-listed ruins of the upper city, above the palm valley.</p></div></a>
+    <a class="dest" href="${B}journeys/index.html"><img src="${B}assets/img/richat-vue-aerienne-480.webp" alt="Richat Structure" loading="lazy">
+      <div class="dest__c"><h3 class="d4">The Richat</h3><p>Forty kilometres of concentric rock — the Eye of the Sahara.</p></div></a>
+    <a class="dest" href="${B}journeys/index.html"><img src="${B}assets/img/terjit-palmeraie-480.webp" alt="Terjit" loading="lazy">
+      <div class="dest__c"><h3 class="d4">Terjit</h3><p>A fault in the rock hiding a palm grove and freshwater springs.</p></div></a>
+    <a class="dest" href="${B}journeys/index.html"><img src="${B}assets/img/train-fer-wagon-minerai-480.webp" alt="The iron ore train" loading="lazy">
+      <div class="dest__c"><h3 class="d4">The ore train</h3><p>Choum to Nouadhibou, one night on the longest train on earth.</p></div></a>
+    <a class="dest" href="${B}journeys/index.html"><img src="${B}assets/img/marche-artisanat-480.webp" alt="Nouakchott" loading="lazy">
+      <div class="dest__c"><h3 class="d4">Nouakchott</h3><p>The fishing port at dusk, the markets, and dunes at the city's edge.</p></div></a>
+  </div>
+</div>
 
 ${caravan()}
 <div class="tick"><div class="tick__in" data-tick>
