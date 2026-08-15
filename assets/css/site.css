@@ -482,3 +482,52 @@ body::after{content:'';position:fixed;inset:0;z-index:9000;pointer-events:none;o
 .ovl__q{font-family:var(--serif);font-size:clamp(1.05rem,2.2vw,1.5rem);color:rgba(251,248,242,.9);
   padding:1.4rem 0 .4rem;max-width:26ch;line-height:1.25}
 .ovl__q em{font-style:italic;color:var(--sand)}
+
+/* ==========================================================================
+   PASSE GLOBALE — respiration, matière, alternance
+   ========================================================================== */
+
+/* Alternance de fonds sur les sections neutres, pour que deux blocs voisins
+   ne soient jamais du même ivoire. Les sections déjà colorées sont exclues. */
+main>section:not(.hour):not(.trust):not([style*="background"]):nth-of-type(even){
+  background:var(--ivory-2)}
+
+/* Images : léger réchauffement et cadrage plus généreux */
+.card__m img,.two img,.day img,.rev__p img{filter:saturate(1.04) contrast(1.02)}
+.two img,.day img{box-shadow:0 30px 60px -46px rgba(25,23,20,.55)}
+
+/* Titres : plus d'air au-dessus, filet de section discret */
+.lead{align-items:flex-start;padding-bottom:1.6rem}
+.lead h2{margin-top:.2rem}
+section>.shell>.lead+*{margin-top:clamp(2rem,4vw,3.2rem)}
+
+/* Listes de circuits : ligne plus vivante au survol */
+.row{position:relative}
+.row::after{content:'';position:absolute;left:0;bottom:-1px;height:1px;width:0;
+  background:var(--earth);transition:width .6s var(--ease)}
+.row:hover::after{width:100%}
+
+/* Cartes : le cadre s'efface, la photo prend le dessus */
+.card{background:transparent;border:0}
+.card:hover{box-shadow:none;transform:translateY(-4px)}
+.card__m{box-shadow:0 26px 54px -40px rgba(25,23,20,.6)}
+.card__b{padding:1.1rem 0 0}
+.card__f{border-top-color:var(--line)}
+
+/* Blocs sombres : un halo chaud en haut, comme un feu hors champ */
+.hour.night{position:relative;overflow:hidden}
+.hour.night::before{content:'';position:absolute;inset:auto 0 auto 0;top:-30%;height:70%;
+  z-index:0;pointer-events:none;
+  background:radial-gradient(60% 100% at 50% 0%,rgba(200,120,50,.16),transparent 70%)}
+.hour.night>*{position:relative;z-index:1}
+
+/* Chiffres clés : filet sable au-dessus, comme une légende de planche */
+.temps div{padding-top:.9rem;border-top:1px solid var(--line)}
+.temps b{color:var(--earth)}
+.hour.night .temps b,.ft .temps b{color:var(--sand)}
+
+/* Pied de page : dune en négatif au-dessus, pour l'attacher à la page */
+.ft{position:relative}
+.ft::before{content:'';position:absolute;inset:auto 0 100% 0;height:clamp(30px,4vw,64px);
+  background:var(--char);
+  clip-path:polygon(0 100%,0 62%,14% 46%,32% 58%,52% 40%,72% 56%,88% 38%,100% 48%,100% 100%)}
