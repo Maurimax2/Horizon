@@ -611,3 +611,16 @@ body:has(.planner) .ft{background:#0A0806}
 body:has(.planner) .ft::before{background:#0A0806}
 body:has(.planner) .band::after{
   background:linear-gradient(100deg,rgba(8,8,10,.88) 0%,rgba(8,8,10,.5) 46%,transparent 78%)}
+
+/* Correctif : le menu et le pied de page tiraient leur couleur de texte de
+   --ivory, inversé en sombre sur l'accueil. On la fixe explicitement. */
+body:has(.planner) .ovl,
+body:has(.planner) .ovl__n a,
+body:has(.planner) .ft{color:#F4EFE7}
+body:has(.planner) .ovl__q{color:rgba(244,239,231,.92)}
+body:has(.planner) .ovl__f,
+body:has(.planner) .ft a{color:rgba(244,239,231,.72)}
+body:has(.planner) .ovl__n a:hover>span,
+body:has(.planner) .ft a:hover{color:var(--sand)}
+body:has(.planner) .ft h4{color:var(--sand)}
+body:has(.planner) .ft__b{color:rgba(244,239,231,.5)}
