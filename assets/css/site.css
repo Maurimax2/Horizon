@@ -631,3 +631,42 @@ body:has(.planner) .ft__b{color:rgba(244,239,231,.5)}
    pastille « 12 jours » / « Uncategorized » était donc invisible sur
    toutes les cartes du site. On rétablit simplement l'ordre voulu. */
 .card__d{z-index:1}
+
+/* ── correctif : la section « nuit » de l'accueil ─────────────────────
+   .hour.night tire son fond de var(--char) et son texte de var(--ivory).
+   L'accueil sombre échange ces deux jetons : la section basculait donc
+   en fond CLAIR, tandis que .hour .say (rgba(255,255,255,.88)) et le
+   --dim codé en dur restaient blancs — texte blanc sur blanc.
+   On lui donne ses couleurs en dur : la nuit reste la nuit.          */
+body:has(.planner) .hour.night{background:#0D0A08;color:#F4EFE7;
+  --dim:rgba(244,239,231,.72);--line:rgba(244,239,231,.15)}
+body:has(.planner) .hour.night h1,
+body:has(.planner) .hour.night h2,
+body:has(.planner) .hour.night h3{color:#F4EFE7}
+body:has(.planner) .hour.night .say{color:rgba(244,239,231,.82)}
+body:has(.planner) .hour.night .tiny{color:rgba(244,239,231,.62)}
+body:has(.planner) .hour.night .eyebrow,
+body:has(.planner) .hour.night .tiny--b{color:var(--sand)}
+
+/* ── correctif : textes qui héritaient d'un jeton échangé ─────────────
+   Sur l'accueil sombre, --char devient clair. Deux éléments gardaient
+   pourtant un fond clair et prenaient var(--char) comme couleur de
+   texte : clair sur clair.
+   1. la pastille « 12 jours » des cartes (fond blanc)
+   2. le bouton « Plan a journey » du pied de page, dont la règle
+      .ft a (plus spécifique) écrasait la couleur de .btn--l          */
+body:has(.planner) .card__d{color:#100D0A}
+body:has(.planner) .ft a.btn--l,
+body:has(.planner) .ft a.btn--p{color:#100D0A}
+body:has(.planner) .ft a.btn--l:hover,
+body:has(.planner) .ft a.btn--p:hover{color:#100D0A}
+
+/* .sticky .w garde un fond blanc mais prenait var(--char) comme couleur
+   de texte : « WhatsApp » disparaissait sur l'accueil sombre. */
+body:has(.planner) .sticky .w{color:#100D0A}
+
+/* .top.solid a un fond clair codé en dur mais prend var(--char) comme
+   couleur : sur l'accueil sombre, le sélecteur EN/FR, sa bordure, le
+   burger et la navigation (tous en currentColor) devenaient blancs
+   sur blanc dès que l'en-tête se solidifiait au défilement. */
+body:has(.planner) .top.solid{color:#100D0A}
