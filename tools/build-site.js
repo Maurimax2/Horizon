@@ -353,7 +353,7 @@ ${body}
     </div>
     <div class="ft__b">
       <span>© 2026 Mauritania Horizons — approved by the Mauritanian state</span>
-      <span>Mock-up · content pending final validation</span>
+      <span>Nouakchott, Mauritania</span>
     </div>
   </div>
 </footer>
